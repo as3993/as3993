@@ -1,2 +1,2 @@
 # as3993
-My homepage
+This will be my HTML homepage.
