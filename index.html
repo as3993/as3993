@@ -11,15 +11,18 @@
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
   <style> 
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes padding { from { padding-top:50px; } to { padding-top:0px; } }
+  @keyframes opacity { from { opacity:0; } to { opacity:1; } }
 
-  .fade-in {
-	opacity:0;  /* make things invisible upon start */
-	animation:fadeIn ease-in 1;
- 
+  .sidebar {
+  	opacity:0;
+	padding-top:30px;  /* make things invisible upon start */
+	animation:padding, opacity ease-in;
+
 	animation-fill-mode:forwards;
  
-	animation-duration:1s;
+	animation-duration:.5s;
+	animation-delay:.5s;
 }
   .navbar a {
   	  	text-decoration: none;
@@ -118,6 +121,13 @@
   .content {
   	float:left;
   	width:70%;
+  	opacity:0;
+  	animation:opacity ease-in;
+
+	animation-fill-mode:forwards;
+ 
+	animation-duration:.8s;
+	animation-delay:.4s;
   }
   .sidebar {
   	float:left;
@@ -207,7 +217,6 @@
 <body onload="criticfn()">
 
 <div class="header">
-  <!--<h1 class="fade-in">Test</h1>-->
   <h1><a href="index.html">Sinai's Homepage</a></h1>
   <h2 ID="critic"></h2>
   <script>
