@@ -11,20 +11,39 @@
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
   <style> 
-  a {
+  .navbar a {
   	  	text-decoration: none;
   	  	color: white;
-  	  	cursor:url("cursor.png"), auto;
+  }
+  .navbar a:hover {
+  	  	border: none;
+  }
+  a {
+  	text-decoration: none;
+  	color: #1e6bb8;
+  	size:16px;
+  	cursor:url("cursor.png"), auto;
+  }
+  a:hover{
+  	border-bottom: 1px solid #1e6bb8;
   }
   button{
   		cursor:url("cursor.png"), auto;
   }
   h1 {
+  	text-align: center; 
+  }
+  h1 a {
   	font-size:50;
   	font-weight: bold;
   	color: white; 
   	text-align: center;
   	line-height: 20px;
+  	transition:opacity .3s;
+  }
+
+  h1 a:hover {
+  	border-bottom: 1px solid white;
   }
 
   .shareicons {
@@ -171,7 +190,7 @@
   function criticfn() {
   	document.getElementById("critic").style.opacity = 1;
   	var about = ["{Computer Science major.}", "{Tennis Player.}", "{Man of leisure.}", 
-  		"{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}"];
+  		"{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}", "{Animorph in disguise.}"];
   	if (index == about.length) {
   		document.getElementById("critic").innerHTML = about[0];
   		index = 0;
@@ -209,7 +228,7 @@
     	<li style="color:gray;">/</li>
     	<li><a href="">Donations</a></li>
     	<li style="color:gray;">/</li>
-    	<li><a href="">Projects</a></li>
+    	<li><a href="#Projects">Projects</a></li>
         <li style="color:gray;">/</li>
     	<li><a href="#Schedule">Schedule</a></li>
     	<li style="color:gray;">/</li>    	
@@ -223,11 +242,12 @@
 
     		My name is Andrew Sinai and I enjoy tennis, programming, and playing instruments.
     		This is a page I made to work on some basic HTML and Javascript skills.</p>
-    		<button id="italicizeparagraph" onclick="italicizethatparagraph()">Italicize that paragraph.</button>
+    		<button id="italicizeparagraph" onclick="italicizethatparagraph()">Italicize that paragraph.</button><p id="fancy"></p>
     		<script>
     		function italicizethatparagraph() {
     			if(bool === true){
-    				document.getElementById("italicizeparagraph").style.fontStyle = "normal";
+    				document.getElementById("italicizeparagraph").style.fontStyle = "normal"; 
+    				document.getElementById("fancy").innerHTML = "SO FANCY";
     				document.getElementById("italicizeparagraph").textContent = "Normalize that paragraph.";
 
     				document.getElementById("welcomeparagraph").style.fontStyle = "italic";
@@ -254,8 +274,18 @@
     		<p>Why do this? For fun. No, really.</p>
     		<hr>
 
+    		<h3 id="Projects">Projects</h3>
+    		<p> These are some bigger projects I'm working on that I feel are worth sharing. Enjoy!</p>
+    			<blockquote><a href="http://www.freebuilders.org">> Maintenence of a MC server</a></blockquote>
+    			<blockquote><a href="http://www.pages.drexel.edu/~as3993/cs164/lab8/8ball.html">> Magic 8 ball simulation</a></blockquote>
+    			<blockquote><a href="http://www.pages.drexel.edu/~as3993/cs164/hwk6/VirtualPet.html">> Virtual Pest Project</blockquote>
+    			<blockquote><a href="http://www.lifeofsinai.wordpress.com">> A blog about my travels.</blockquote>
+    			<blockquote><a href="https://www.youtube.com/watch?v=5m5oR2Xz-bs">> Playing Bohemian Rhapsody on the Uke</blockquote>
 
+    		<hr>
 			<h3 id="Schedule">Schedule </h3>
+			<p>This is my current class and tennis schedule at Drexel.</p>
+			<br>
 
 <table border=none cellpadding=2 align=center>
   <tr> 
