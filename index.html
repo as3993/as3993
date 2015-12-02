@@ -11,6 +11,16 @@
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
   <style> 
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  .fade-in {
+	opacity:0;  /* make things invisible upon start */
+	animation:fadeIn ease-in 1;
+ 
+	animation-fill-mode:forwards;
+ 
+	animation-duration:1s;
+}
   .navbar a {
   	  	text-decoration: none;
   	  	color: white;
@@ -19,6 +29,7 @@
   	  	border: none;
   }
   a {
+  	text-decoration: none;
   	cursor:url("cursor.png"), auto;
   }
   .projectlinks a {
@@ -30,7 +41,7 @@
   .projectlinks a:hover{
   	border-bottom: 1px solid #1e6bb8;
   }
-  button{
+  button {
   		cursor:url("cursor.png"), auto;
   }
   h1 {
@@ -196,6 +207,7 @@
 <body onload="criticfn()">
 
 <div class="header">
+  <!--<h1 class="fade-in">Test</h1>-->
   <h1><a href="index.html">Sinai's Homepage</a></h1>
   <h2 ID="critic"></h2>
   <script>
@@ -230,7 +242,7 @@
     	<span class="shareicons"><a href="https://www.facebook.com/andrew.sinai"><img src="facebook.png" style="width:32px; height:32px;"></a></span> &nbsp;
     	<span class="shareicons"><a href="https://github.com/as3993"><img src="github.png" style="width:32px; height:32px;"></a></span> &nbsp;
     	<span class="shareicons"><a href="https://www.youtube.com/user/sinaisinai43/videos"><img src="youtube.png" style="width:32px; height:32px;"></a></span> &nbsp;
-    	<span class="shareicons"><a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=WpEEHCBS3X9tookBzKI427MHH0TiV5FuJeQiKIERTgXQ_XxvyLenkMoSbVG&dispatch=5885d80a13c0db1f8e263663d3faee8d64ad11bbf4d2a5a1a0d303a50933f9b2"><img src="paypal.png" style="width:32px; height:32px;"></a></span>
+    	<span class="shareicons"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=sinaisinai43%40gmail%2ecom&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest"><img src="paypal.png" style="width:32px; height:32px;"></a></span>
     </div>
 </div>
 
@@ -243,9 +255,9 @@
         <li style="color:gray;">/</li>
     	<li><a href="#Schedule">Schedule</a></li>
     	<li style="color:gray;">/</li>
-    	<li><a href="">Donate</a></li>
+    	<li><a href="#Donate">Donate</a></li>
     	<li style="color:gray;">/</li>    	
-    	<li><a href="">Contact</a></li>
+    	<li><a href="#Contact">Contact</a></li>
     </ul>
     <div class="content">
     	<div style="padding-left: 20px; padding-right: 20px">
@@ -281,12 +293,12 @@
     		</script>
     		<hr>
 
-
     		<h3 id="About">About </h3>
-    		<p>You may be wondering why anyone would go through the trouble of making a website from scratch.
-
-    			Isn't it easier to just use Wix or Wordpress or Blogger? Well, yes, but you miss
-    			out on all the control you have in making your own website. And it's fun! No, really.</p>
+    		<p>You may be wondering why anyone would go through the trouble of making a website from scratch. 
+    		Isn't it easier to use Blogger or Wix or Wordpress?
+    			<br>
+    			<br>
+    			Well, yes, but you miss out on a lot of the control you have in making your own website. And it's fun! No, really.</p>
     		<hr>
 
     		<h3 id="Projects">Projects</h3>
@@ -298,6 +310,7 @@
     			<blockquote class="projectlinks"><a href="https://www.youtube.com/watch?v=5m5oR2Xz-bs">> Playing Bohemian Rhapsody on the Uke</a></blockquote>
     			<blockquote class="projectlinks"><a href="http://tennislink.usta.com/tournaments/draws/PlayerTournamentHistory.aspx?MID=0183179178179183183178178185">> Better tennis results</a></blockquote>
     		<hr>
+
 			<h3 id="Schedule">Schedule </h3>
 			<p>This is my fall 2015 schedule at Drexel.</p>
 			<br>
@@ -473,10 +486,16 @@
 </table>
 <br />
 <br />
+
+	<hr>
+	<h3 id="Donate">Donate</h3>
+    		<p>This wouldn't be an authentic college student's website unless I tried to finagle you out of some of your hard-earned cash.
+    		I'm a broke college student with no track record to speak of, <span class="projectlinks"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=sinaisinai43%40gmail%2ecom&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest">what have you got to lose?</a></span></p>
     	</div>
     </div>
 
     <div class="sidebar">
+
     	<div style="border-left:1px dotted black; padding-bottom:1000px;">
     		<h4>Picture of me:</h4>
     		<img src="andrew.jpg" class="andrew" style="width:70%" onclick="caption()">
@@ -490,10 +509,12 @@
     </div>
     <br>
     <br>
+
     <div class="footer">
     	<div style="padding-left: 20px; padding-right: 20px">
     	<hr>
     	<p>&copy; 2015 Cyanide44 and co.</p>
+    	</div>
     </div>
 
     <!-- Smooth scrolling script. Done with JQuery. -->
@@ -512,32 +533,6 @@
             return false;
         }
     }
-});
-    // **********************************************
-    //this hides functions with the hideme element.
-    // **********************************************
-    $(document).ready(function() {
-    
-    /* Every time the window is scrolled ... */
-    $(window).scroll( function(){
-    
-        /* Check the location of each desired element */
-        $('.hideme').each( function(i){
-            
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
-            /* If the object is completely visible in the window, fade it it */
-            if( bottom_of_window > bottom_of_object ){
-                
-                $(this).animate({'opacity':'1'},500);
-                    
-            }
-            
-        }); 
-    
-    });
-    
 });
    </script>
 
