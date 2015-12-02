@@ -1,16 +1,14 @@
 <html>
 
 <!--
-  CS 164 Fall 2013
-  Generic home page
-  Name: Andrew Sinai
-  Date: 9/23/15
+  Andrew Sinai test HTML page.
+  Done on Dec 1st.
 -->
 
 <head>
 
   <title>Sinai's Homepage</title>
-  <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+  <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
   <style> 
   a {
@@ -73,8 +71,8 @@
   }
   .header {
   	background-image: url("header.png");
-  	padding-top: 30px;
-  	padding-bottom: 30px;
+  	padding-top: 40px;
+  	padding-bottom: 40px;
   }
   .content {
   	float:left;
@@ -90,12 +88,26 @@
   	width:100%;
   }
   h3 {
-  	margin-left: 8px;
+  	font-size: 20px;
+  	font-weight: normal;
+  	color:teal;
   }
   body {
   	margin: 0;
   	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   	cursor:url("cursor.png"), auto;
+  }
+  p {
+  	font-size:16px;
+  	color: #606c71;
+  	line-height: 1.5;
+  }
+  hr {
+    height: 2px;
+    padding: 0;
+    margin: 1rem 0;
+    background-color: #dfdfdf;
+    border: 0;
   }
   </style>
   <script>
@@ -144,7 +156,7 @@
 </div>
 
     <ul class="navbar">
-    	<li><a href="#Example">Home</a></li>
+    	<li><a href="#Welcome">Welcome</a></li>
     	<li style="color:gray;">/</li>
     	<li><a href="">About</a></li>
     	<li style="color:gray;">/</li>
@@ -156,14 +168,20 @@
     	<li style="color:gray;">/</li>    	
     	<li><a href="">Contact</a></li>
     </ul>
-
     <div class="content">
-    	<h3 id="Example">Welcome to </h3>
+    	<div style="padding-left: 20px;">
+    		<h3 id="Welcome">Welcome to as3993.github.io! </h3>
+    		<p>To be honest, I'm not quite sure how you got here. But now that we're sharing a moment,
+    		why not explore? 
+
+    		My name is Andrew Sinai and I enjoy tennis, programming, and playing instruments.
+    		This is a page I made to work on some basic HTML skills.</p>
     	<button onclick="criticfn()">Test</button>
+    	</div>
     </div>
 
     <div class="sidebar">
-    	<div style="border-left:1px solid black;">
+    	<div style="border-left:1px dotted black;">
     	<h4>Picture of me:</h4>
     	<img src="andrew.jpg" style="width:70%">
     	</div>
