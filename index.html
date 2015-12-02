@@ -11,18 +11,17 @@
   <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 
   <style> 
-  @keyframes padding { from { padding-top:50px; } to { padding-top:0px; } }
+  @keyframes zoom { from { transform:scale(0.5); } to { transform:scale(1.0); } }
   @keyframes opacity { from { opacity:0; } to { opacity:1; } }
 
   .sidebar {
-  	opacity:0;
-	padding-top:30px;  /* make things invisible upon start */
-	animation:padding, opacity ease-in;
+  	opacity:0;  /* make things invisible upon start */
+	animation:zoom, opacity ease-in;
 
 	animation-fill-mode:forwards;
  
 	animation-duration:.5s;
-	animation-delay:.5s;
+	animation-delay:.8s;
 }
   .navbar a {
   	  	text-decoration: none;
@@ -40,9 +39,11 @@
   	color: #1e6bb8;
   	size:16px;
   	cursor:url("cursor.png"), auto;
+  	transition:color .3s;
   }
   .projectlinks a:hover{
-  	border-bottom: 1px solid #1e6bb8;
+  	color: #154a80;
+  	border-bottom: 1px solid #154a80;
   }
   button {
   		cursor:url("cursor.png"), auto;
@@ -269,7 +270,7 @@
     	<li><a href="#Contact">Contact</a></li>
     </ul>
     <div class="content">
-    	<div style="padding-left: 20px; padding-right: 20px">
+    	<div style="padding-left: 20px; padding-right: 20px; border-right:1px dotted black;">
     		<h3 id="Welcome">Welcome to as3993.github.io! </h3>
     		<p ID="welcomeparagraph">To be honest, I'm not quite sure how you got here. But now that we're sharing a moment,
     		why not explore? 
@@ -505,7 +506,7 @@
 
     <div class="sidebar">
 
-    	<div style="border-left:1px dotted black; padding-bottom:1000px;">
+    	<div>
     		<h4>Picture of me:</h4>
     		<img src="andrew.jpg" class="andrew" style="width:70%" onclick="caption()">
     		<p>(Click pic for caption.)</p>
