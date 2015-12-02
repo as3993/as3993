@@ -9,19 +9,213 @@
 
 <head>
 
-  <title>YOUR NAME's Generic Home Page</title>
+  <title>Cyanide44 Homepage</title>
+  <style> 
+  a {
+  	  	text-decoration: none;
+  	  	color: white;
+  	  	cursor:url("cursor.png"), auto;
+  }
+  h1 {
+  	font-size:50;
+  	font-weight: bold;
+  	color: white; 
+  	text-align: center;
+  	line-height: 3px;
+  }
+  h1 a {
+  	color:white;
+  	transition:color .3s;
+  }
+  h1 a:hover {
+  	color: darkgray;
+  	/*-webkit-text-stroke-width: 1.1px;*/
+  }
 
+  h2 {
+  	font-style: italic;
+    color: white; 
+    text-align: center; 
+    opacity: 0.7;
+  }
+  .navbar {
+  	text-align: center;
+    list-style-type: none;
+  	background-color: #333;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+  	margin: 0;
+  }
+  li {
+  	display: inline;
+  	font-size: 15;
+  }
+  .navbar li a {
+  	font-weight: bold;
+  	text-align: center;
+  	padding-left: 14px;
+  	padding-right: 14px;
+  	color: white;
+    text-decoration: none;
+    transition:color .3s;
+  }
+  .navbar li a:hover{
+  	color: darkgray;
+  	/*border-bottom: 2px solid darkgray;*/
+  }
+  .links {
+  	text-align: center;
+  	-webkit-padding-start: 0px;
+  }
+  .links li a {
+  	padding-right: 3px;
+  }
+  .header {
+  	background-image: url("header.jpg");
+  	padding-top: 30px;
+  	padding-bottom: 30px;
+  }
+  .content {
+  	float:left;
+  	width:70%;
+  }
+  .sidebar {
+  	float:left;
+  	width:30%;
+  	text-align: center;
+  }
+  .footer {
+  	float:left;
+  	width:100%;
+  }
+  h3 {
+  	margin-left: 8px;
+  }
+  body {
+  	margin: 0;
+  	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	cursor:url("cursor.png"), auto;
+  }
+  </style>
+  <script>
+  var index = 0;
+  </script>
 </head>
 
-<body BGCOLOR="#003366">
+<body onload="criticfn()">
 
-  <h1>
-    <font COLOR="#FFFFCC" FACE="Verdana, Arial, Helvetica, sans-serif">
-      <i>
-        Andrew Sinai
-      </i>
-    </font>  
-  </h1>
+  <div class="header">
+  <h1><a href="index.html">Andrew Sinai</a></h1>
+  <h2 ID="critic"></h2>
+  <script>
+  function criticfn() {
+  	document.getElementById("critic").style.opacity = .7;
+  	var about = ["Computer Science major.", "Tennis Player.", "Man of leisure.", 
+  		"One of the 'bros.'"];
+  	if (index == about.length) {
+  		document.getElementById("critic").innerHTML = about[0];
+  		index = 0;
+  		index++;
+  	}
+  	if (index < about.length) {
+  		critic = about[index];
+  		document.getElementById("critic").innerHTML = about[index];
+  		index++;
+  	}
+    setTimeout("criticopacity()", 3000);
+  }
+
+  function criticopacity(){
+    document.getElementById("critic").style.transition = "opacity 1s";
+    document.getElementById("critic").style.opacity = 0;
+  	setTimeout("criticfn()", 1000);
+  	// Will transition back at 1s rate as well.
+  }
+  </script>
+
+    <ul class="links">
+    	<li><a href="http://www.twitter.com"><img src="twitter.png" style="width:32px; height:32px;"></a></li>
+    	<li><a href="http://www.facebook.com"><img src="facebook.png" style="width:32px; height:31px;"></a></li>
+    	<li><a href="http://www.github.com"><img src="github.png" style="width:34px; height:32px;"></a></li>
+    	<li><a href="http://www.youtube.com"><img src="youtube.png" style="width:36px; height:36px;"></a></li>
+    </ul>
+  </div> 
+    <ul class="navbar">
+    	<li><a href="#Example">Home</a></li>
+    	<li style="color:gray;">/</li>
+    	<li><a href="">About</a></li>
+    	<li style="color:gray;">/</li>
+    	<li><a href="">Donations</a></li>
+    	<li style="color:gray;">/</li>
+    	<li><a href="">Projects</a></li>
+        <li style="color:gray;">/</li>
+    	<li><a href="">Schedule</a></li>
+    	<li style="color:gray;">/</li>    	
+    	<li><a href="">Contact</a></li>
+    </ul>
+
+    <div class="content">
+    	<h3 id="Example">Welcome to </h3>
+    	<button onclick="criticfn()">Test</button>
+    </div>
+
+    <div class="sidebar">
+    	<div style="border-left:1px solid black;">
+    	<h4>Picture of me:</h4>
+    	<img src="andrew.jpg" style="width:70%">
+    	</div>
+    </div>
+    <br>
+    <br>
+    <div class="footer">
+    	<hr>
+    	<p>&copy; 2015, Cyanide44 and co.</p>
+    </div>
+
+    <!-- Smooth scrolling script. Done with JQuery. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html,body').animate({
+                 scrollTop: target.offset().top
+            }, 1000);
+            return false;
+        }
+    }
+});
+    // **********************************************
+    //this hides functions with the hideme element.
+    // **********************************************
+    $(document).ready(function() {
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.hideme').each( function(i){
+            
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},500);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+   </script>
 
 </body>
 
