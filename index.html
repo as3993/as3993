@@ -13,6 +13,7 @@
   <style> 
   @keyframes zoom { from { transform:scale(0.5); } to { transform:scale(1.0); } }
   @keyframes opacity { from { opacity:0; } to { opacity:1; } }
+  @keyframes opacityh2 { 0%{opacity:0;} 25%{opacity:1;} 75%{opacity:1;} 100%{opacity:0;} }
 
   .sidebar {
   	opacity:0;  /* make things invisible upon start */
@@ -21,8 +22,13 @@
 	animation-fill-mode:forwards;
  
 	animation-duration:.5s;
-	animation-delay:.8s;
+	animation-delay:1s;
 }
+  h2 {
+    font-style: italic;
+    color: white; 
+    text-align: center; 
+  }
   .navbar a {
   	  	text-decoration: none;
   	  	color: white;
@@ -74,12 +80,6 @@
   	transition:opacity .3s;
   	border-bottom: 1px solid transparent;
   }
-
-  h2 {
-  	font-style: italic;
-    color: white; 
-    text-align: center; 
-  }
   .navbar {
   	text-align: center;
     list-style-type: none;
@@ -106,7 +106,10 @@
   }
   .andrew {
     transition: border-color .3s ease-in-out;
-    border-bottom: 1px solid transparent;
+    border: 2px solid transparent;
+  }
+  .andrew:hover {
+    border: 2px solid #6666ff;
   }
   .links {
   	text-align: center;
@@ -128,7 +131,7 @@
 	animation-fill-mode:forwards;
  
 	animation-duration:.8s;
-	animation-delay:.4s;
+	animation-delay:.6s;
   }
   .sidebar {
   	float:left;
@@ -224,7 +227,7 @@
   function criticfn() {
   	document.getElementById("critic").style.opacity = 1;
   	var about = ["{Computer Science major.}", "{Tennis Player.}", "{Man of leisure.}", 
-  		"{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}", "{Animorph in disguise.}", 
+      "{Muggle.}", "{High School Graduate.}", "{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}", "{Animorph in disguise.}", 
   		"{Semi-professional high-fiver.}"];
   	if (index == about.length) {
   		document.getElementById("critic").innerHTML = about[0];
@@ -236,14 +239,7 @@
   		document.getElementById("critic").innerHTML = about[index];
   		index++;
   	}
-    setTimeout("criticopacity()", 3000);
-  }
-
-  function criticopacity(){
-    document.getElementById("critic").style.transition = "opacity 1s";
-    document.getElementById("critic").style.opacity = 0;
-  	setTimeout("criticfn()", 1000);
-  	// Will transition back at 1s rate as well.
+    setTimeout("document.getElementById('critic').style.transition = 'opacity 1s'; document.getElementById('critic').style.opacity = 0; setTimeout('criticfn()', 1000);", 3000);
   }
   </script>
 
@@ -269,6 +265,8 @@
     	<li style="color:gray;">/</li>    	
     	<li><a href="#Contact">Contact</a></li>
     </ul>
+    <br>
+
     <div class="content">
     	<div style="padding-left: 20px; padding-right: 20px; border-right:1px dotted black;">
     		<h3 id="Welcome">Welcome to as3993.github.io! </h3>
@@ -526,9 +524,9 @@
     <div class="sidebar">
 
     	<div>
-    		<h4>Picture of me:</h4>
+    		<h4 style="-webkit-margin-after: .5em;">Picture of me</h4>
     		<img src="andrew.jpg" class="andrew" style="width:70%" onclick="caption()">
-    		<p style="font-size:13px">(Click pic for caption.)</p>
+    		<p style="font-size:13px; -webkit-margin-before: .5em;">(Click pic for caption.)</p>
     		<script>
     		function caption(){
     			alert("Fight with your heart and your mind.")
@@ -536,11 +534,14 @@
     		</script>
 
     		<br>
-    		<br>
-    		<h4>Recommended Reading:</h4>
+    		<h4 style="-webkit-margin-after: .5em;">Recommended Reading</h4>
     		<p style="font-size:13px; text-align:left; padding-left:15px"><b>Programming:</b> Coding Horror, Codecademy<br>
 									  <b>Tennis:</b> Tennis Recruiting, JWtennis, ZooTennis<br>
-									  <b>Other:</b> Freebuilders Minecraft, Mark Manson, Agar.io, The Verge
+									  <b>Other:</b> Freebuilders Minecraft, Mark Manson, Agar.io, The Verge</p>
+
+        <br>
+        <h4 style="-webkit-margin-after: .5em;">Music</h4>
+        <button style="width:45%">New Song!</button> <button style="width:45%">Stop Music.</button>
     	</div>
     </div>
     <br>
