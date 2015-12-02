@@ -39,7 +39,8 @@
   	color: white; 
   	text-align: center;
   	line-height: 20px;
-  	transition:opacity .3s;
+  	transition: border-color .3s ease-in-out;
+    border-bottom: 1px solid transparent;
   }
 
   h1 a:hover {
@@ -53,6 +54,7 @@
   .shareicons:hover {
   	opacity: .6;
   	transition:opacity .3s;
+  	border:none;
   }
 
   h2 {
@@ -84,6 +86,10 @@
   .navbar li a:hover{
   	color: darkgray;
   }
+  .andrew {
+    transition: border-color .3s ease-in-out;
+    border-bottom: 1px solid transparent;
+  }
   .links {
   	text-align: center;
   	-webkit-padding-start: 0px;
@@ -112,6 +118,9 @@
   	font-size: 20px;
   	font-weight: normal;
   	color:teal;
+  }
+  h4 {
+  	color:black;
   }
   body {
   	margin: 0;
@@ -190,7 +199,8 @@
   function criticfn() {
   	document.getElementById("critic").style.opacity = 1;
   	var about = ["{Computer Science major.}", "{Tennis Player.}", "{Man of leisure.}", 
-  		"{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}", "{Animorph in disguise.}"];
+  		"{One of the 'bros.'}", "{Good guy.}", "{Ukulelist.}", "{Animorph in disguise.}", 
+  		"{Semi-professional high-fiver.}"];
   	if (index == about.length) {
   		document.getElementById("critic").innerHTML = about[0];
   		index = 0;
@@ -242,12 +252,11 @@
 
     		My name is Andrew Sinai and I enjoy tennis, programming, and playing instruments.
     		This is a page I made to work on some basic HTML and Javascript skills.</p>
-    		<button id="italicizeparagraph" onclick="italicizethatparagraph()">Italicize that paragraph.</button><p id="fancy"></p>
+    		<button id="italicizeparagraph" onclick="italicizethatparagraph()">Italicize that paragraph.</button>
     		<script>
     		function italicizethatparagraph() {
     			if(bool === true){
     				document.getElementById("italicizeparagraph").style.fontStyle = "normal"; 
-    				document.getElementById("fancy").innerHTML = "SO FANCY";
     				document.getElementById("italicizeparagraph").textContent = "Normalize that paragraph.";
 
     				document.getElementById("welcomeparagraph").style.fontStyle = "italic";
@@ -271,20 +280,22 @@
 
 
     		<h3 id="About">About </h3>
-    		<p>Why do this? For fun. No, really.</p>
+    		<p>You may be wondering why anyone would go through the trouble of making a website from scratch.
+
+    			Isn't it easier for someone to just use Wix or Wordpress or Blogger? Well, yes, but you miss
+    			out on all the control you have in making your own website. And it's actually fun! No, really.</p>
     		<hr>
 
     		<h3 id="Projects">Projects</h3>
     		<p> These are some bigger projects I'm working on that I feel are worth sharing. Enjoy!</p>
     			<blockquote><a href="http://www.freebuilders.org">> Maintenence of a MC server</a></blockquote>
     			<blockquote><a href="http://www.pages.drexel.edu/~as3993/cs164/lab8/8ball.html">> Magic 8 ball simulation</a></blockquote>
-    			<blockquote><a href="http://www.pages.drexel.edu/~as3993/cs164/hwk6/VirtualPet.html">> Virtual Pest Project</blockquote>
-    			<blockquote><a href="http://www.lifeofsinai.wordpress.com">> A blog about my travels.</blockquote>
-    			<blockquote><a href="https://www.youtube.com/watch?v=5m5oR2Xz-bs">> Playing Bohemian Rhapsody on the Uke</blockquote>
-
+    			<blockquote><a href="http://www.pages.drexel.edu/~as3993/cs164/hwk6/VirtualPet.html">> Virtual Pest Project</a></blockquote>
+    			<blockquote><a href="http://www.lifeofsinai.wordpress.com">> A blog about my travels.</a></blockquote>
+    			<blockquote><a href="https://www.youtube.com/watch?v=5m5oR2Xz-bs">> Playing Bohemian Rhapsody on the Uke</a></blockquote>
     		<hr>
 			<h3 id="Schedule">Schedule </h3>
-			<p>This is my current class and tennis schedule at Drexel.</p>
+			<p>This is my current schedule at Drexel.</p>
 			<br>
 
 <table border=none cellpadding=2 align=center>
@@ -464,7 +475,12 @@
     <div class="sidebar">
     	<div style="border-left:1px dotted black; padding-bottom:1000px;">
     		<h4>Picture of me:</h4>
-    		<img src="andrew.jpg" style="width:70%">
+    		<img src="andrew.jpg" class="andrew" style="width:70%" onclick="caption()">
+    		<script>
+    		function caption(){
+    			alert("Photo Caption: fight with your heart and your mind.")
+    		}
+    		</script>
     	</div>
     </div>
     <br>
