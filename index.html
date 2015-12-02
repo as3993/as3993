@@ -2,7 +2,7 @@
 
 <!--
   Andrew Sinai test HTML page.
-  Done on Dec 1st.
+  Started on Dec 1st.
 -->
 
 <head>
@@ -499,8 +499,27 @@
 
 	<hr>
 	<h3 id="Donate">Donate</h3>
-    		<p>This wouldn't be an authentic college student's website unless I tried to finagle you out of some of your hard-earned cash.
+    		<p>This wouldn't be an authentic college students' website unless I tried to finagle you out of some of your hard-earned cash.
     		I'm a broke college student with no track record to speak of, <span class="projectlinks"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=sinaisinai43%40gmail%2ecom&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest">what have you got to lose?</a></span></p>
+   	<hr>
+	<h3 id="Contact">Contact</h3>
+			<p>Please use the provided mad-libs to create an email. If that isn't sufficient, just type your email into the textarea and click send.
+			<form>
+				<p style="font-size:12px; font-weight:bold;"> Your favorite after school meal: <input type="text">
+				<br>
+				<br>
+				<button>Compile mab-libs.</button>
+				<br>
+				<br>
+				<textarea></textarea>
+				<br>
+				<button onclick="email()">Send.</button>
+				<script>
+				function email(){
+					window.open('mailto:sinaisinai43@gmail.com?subject=subject&body="this is a test in here"');
+				}
+				</script>
+			</form>
     	</div>
     </div>
 
@@ -509,12 +528,19 @@
     	<div>
     		<h4>Picture of me:</h4>
     		<img src="andrew.jpg" class="andrew" style="width:70%" onclick="caption()">
-    		<p>(Click pic for caption.)</p>
+    		<p style="font-size:13px">(Click pic for caption.)</p>
     		<script>
     		function caption(){
     			alert("Fight with your heart and your mind.")
     		}
     		</script>
+
+    		<br>
+    		<br>
+    		<h4>Recommended Reading:</h4>
+    		<p style="font-size:13px; text-align:left; padding-left:15px"><b>Programming:</b> Coding Horror, Codecademy<br>
+									  <b>Tennis:</b> Tennis Recruiting, JWtennis, ZooTennis<br>
+									  <b>Other:</b> Freebuilders Minecraft, Mark Manson, Agar.io, The Verge
     	</div>
     </div>
     <br>
