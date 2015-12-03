@@ -531,26 +531,30 @@
 	<hr>
 	<h3 id="Donate">Donate</h3>
     		<p>This wouldn't be an authentic college website unless I tried to finagle you out of some of your hard-earned cash.
-    		I'm a broke college student with no track record to speak of, <span class="projectlinks"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=sinaisinai43%40gmail%2ecom&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest">what have you got to lose?</a></span></p>
+    		I'm a broke* college student with no track record to speak of, <span class="projectlinks"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=sinaisinai43%40gmail%2ecom&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest">what have you got to lose?</a></span></p>
+        <p style="font-size:10px">*I can't afford vacations to Europe.</p>
    	<hr>
 	<h3 id="Contact">Contact</h3>
-			<p>Please use the provided mad-libs to create an email. If that isn't sufficient, just type your email into the textarea and click send.
-			<form>
-				<p style="font-size:12px; font-weight:bold;"> Your favorite after school meal: <input type="text">
+			<p>Have a quick thing to tell me? Use the provided mad-libs to create a quick email. It's as easy as 1, 2, 3!</p>
+			<form style="margin-left:10px">
+				<p style="font-size:12px; font-weight:bold;"> 1. <input type="text" id="emailmeal" value="" placeholder="Enter your favorite after school meal." style="width:250px;"></p>
+        <p style="font-size:12px; font-weight:bold;"> 2. <input type="text" id="emailquestion" value="" placeholder="Enter your question." style="width:250px;"></p>
+        <p style="font-size:12px; font-weight:bold;"> 3: <input type="text" id="emailname" value="" placeholder="Enter your name." style="width:250px;"></p>
 				<br>
-				<br>
-				<button>Compile mab-libs.</button>
-				<br>
-				<br>
-				<textarea></textarea>
-				<br>
-				<button onclick="email()">Send.</button>
+        <button type="button" onclick="email()">Create email.</button>
+      </form>
 				<script>
 				function email(){
-					window.open('mailto:sinaisinai43@gmail.com?subject=subject&body="this is a test in here"');
+          var finishedemail;
+          if(document.getElementById("emailmeal").value == "" || document.getElementById("emailquestion").value == "" || document.getElementById("emailname").value == ""){
+              alert("You must enter something in for all provided fields.")
+              return;
+          }
+          finishedemail = 'Hi there Andrew!%0D%0DMy name is ' + document.getElementById("emailname").value + ', and I like ' + document.getElementById('emailmeal').value + '. %0D%0DI saw your amazing website had email madlibs and it reminded me about had a question I had to ask you: "' + document.getElementById('emailquestion').value + '?"%0D%0DLet me know your answer as soon as possible!%0D%0DWith love,%0D' + document.getElementById('emailname').value;
+
+					window.open('mailto:sinaisinai43@gmail.com?subject=Email Spam (DO NOT OPEN)&body=' + finishedemail);
 				}
 				</script>
-			</form>
     	</div>
     </div>
 
