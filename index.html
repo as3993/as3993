@@ -15,7 +15,7 @@
   @keyframes opacity { from { opacity:0; } to { opacity:1; } }
   @keyframes opacityh2 { 0%{opacity:0;} 25%{opacity:1;} 75%{opacity:1;} 100%{opacity:0;} }
 
-  .test {
+  .sound {
   animation:opacity;
 
   animation-fill-mode:forwards;
@@ -166,12 +166,11 @@
     font-weight: normal;
     color: white;
     font-size: 16;
-}
   }
   body {
+    cursor:url("cursor.png"), auto;
   	margin: 0;
   	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  	cursor:url("cursor.png"), auto;
   }
   p {
   	font-size:16px;
@@ -577,8 +576,8 @@
             document.getElementById('song').style.opacity = "0";
             document.getElementById('song').style.width = "40%";
             document.getElementById('song').innerHTML = "New Song?";
-            document.getElementById('stopaudio').className = 'test';
-            document.getElementById('song').className = 'test';
+            document.getElementById('stopaudio').className = 'sound';
+            document.getElementById('song').className = 'sound';
           }
           function stopAudio() {
 
