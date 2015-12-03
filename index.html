@@ -43,9 +43,10 @@
   .projectlinks a {
   	text-decoration: none;
   	color: #1e6bb8;
+    border-bottom: 1px solid transparent;
   	size:16px;
   	cursor:url("cursor.png"), auto;
-  	transition:color .3s;
+  	transition:color, border-color .3s;
   }
   .projectlinks a:hover{
   	color: #154a80;
@@ -215,14 +216,25 @@
   // Intializes some values in the page.
   var index = 0;
   var bool = true;
+  var randomsong = 0;
+  var currentsong = 0;
+  var pausedsong = 0;
   </script>
 </head>
 
 <body onload="criticfn()">
 
-<audio autoplay>
-  <source src="BRMSBALD.mp3">
+<div class="audio">
+<audio id="songone">
+  <source src="Minecraft.mp3">
 </audio>
+<audio id="songtwo">
+  <source src="LloydXmas.mp3">
+</audio>
+<audio id="songthree">
+  <source src="Bach.mp3">
+</audio>
+</div>
 
 <div class="header">
   <h1><a href="index.html">Sinai's Homepage</a></h1>
@@ -537,15 +549,103 @@
     		}
     		</script>
 
-    		<br>
+        <h4 style="-webkit-margin-after: .5em;">Music Toggles</h4>
+        <button style="width:45%" onclick="newSong()">Shuffle music.</button> <button ID="stopaudio" style="width:45%" onclick="stopAudio()">Stop Music.</button>
+        <script>
+          function stopAudio() {
+
+          // Pauses song. Also makes sure paused song is possible for unpausing.
+          if (document.getElementById("songone").paused == false){
+            document.getElementById("songone").pause()
+            document.getElementById("stopaudio").innerHTML = "Play Music."
+            pausedsong = 1;
+            return;
+          }
+          if (document.getElementById("songtwo").paused == false){
+            document.getElementById("songtwo").pause()
+            document.getElementById("stopaudio").innerHTML = "Play Music."
+            pausedsong = 2;
+            return;
+          }
+          if (document.getElementById("songthree").paused == false){
+            document.getElementById("songthree").pause()
+            document.getElementById("stopaudio").innerHTML = "Play Music."
+            pausedsong = 3;
+            return;
+          }
+
+          if (pausedsong == 1)
+          {
+            document.getElementById("songone").play()
+            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            pausedsong = 0;
+            return;
+          }
+          if (pausedsong == 2)
+          {
+            document.getElementById("songtwo").play()
+            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            pausedsong = 0;
+            return;
+          }
+          if (pausedsong == 3)
+          {
+            document.getElementById("songthree").play()
+            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            pausedsong = 0;
+            return;
+          }
+          alert("No song currently playing! Press 'Shuffle music!' to start.")
+        }
+
+        function newSong() {
+         if (document.getElementById("songone").paused == false){
+            document.getElementById("songone").pause()
+            document.getElementById("songone").currentTime = 0
+            currentsong = 1;
+          }
+          if (document.getElementById("songtwo").paused == false){
+            document.getElementById("songtwo").pause()
+            document.getElementById("songtwo").currentTime = 0
+            currentsong = 2;
+          }
+          if (document.getElementById("songthree").paused == false){
+            document.getElementById("songthree").pause()            
+            document.getElementById("songthree").currentTime = 0
+            currentsong = 3;
+          }          
+
+          randomsong = Math.floor((Math.random() * 3 ) + 1);
+          // Avoids shuffling to the same song.
+          if (randomsong == 1 && currentsong !== 1){
+            document.getElementById("songone").play();
+            randomsong = 0;
+            currentsong = 0;
+            return;
+          }
+          if (randomsong == 2 && currentsong !== 2){
+            document.getElementById("songtwo").play();
+            randomsong = 0;
+            currentsong = 0;
+            return;
+          }
+          if (randomsong == 3 && currentsong !== 3){
+            document.getElementById("songthree").play();
+            randomsong = 0;
+            currentsong = 0;
+            return;
+          }
+          newSong();
+        }
+        </script>
+        <br>
+        <br>
     		<h4 style="-webkit-margin-after: .5em;">Recommended Reading</h4>
     		<p style="font-size:13px; text-align:left; padding-left:15px"><b>Programming:</b> Coding Horror, Codecademy<br>
 									  <b>Tennis:</b> Tennis Recruiting, JWtennis, ZooTennis<br>
 									  <b>Other:</b> Freebuilders Minecraft, Mark Manson, Agar.io, The Verge</p>
 
         <br>
-        <h4 style="-webkit-margin-after: .5em;">Music</h4>
-        <button style="width:45%">New Song!</button> <button style="width:45%">Stop Music.</button>
     	</div>
     </div>
     <br>
