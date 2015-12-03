@@ -547,7 +547,7 @@
 				function email(){
           var finishedemail;
           if(document.getElementById("emailmeal").value == "" || document.getElementById("emailquestion").value == "" || document.getElementById("emailname").value == ""){
-              alert("You must enter something in for all provided fields.")
+              alert("You must fill in all provided fields.")
               return;
           }
           finishedemail = 'Hi there Andrew!%0D%0DMy name is ' + document.getElementById("emailname").value + ', and I like ' + document.getElementById('emailmeal').value + '. %0D%0DI saw your amazing website had email madlibs and it reminded me about had a question I had to ask you: "' + document.getElementById('emailquestion').value + '?"%0D%0DLet me know your answer as soon as possible!%0D%0DWith love,%0D' + document.getElementById('emailname').value;
