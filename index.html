@@ -29,8 +29,8 @@
 
 	animation-fill-mode:forwards;
  
-	animation-duration:.5s;
-	animation-delay:1s;
+  animation-duration:.8s;
+  animation-delay:.6s;
 }
   body {
     cursor:url("cursor.png"), auto;
@@ -571,8 +571,8 @@
     		</script>
 
         <br>
-        <h4 style="-webkit-margin-after: .5em;">Control Music</h4>
-        <button ID="song" style="width:40%;" onclick="newSong(), animation()">Play a song!</button> <button ID="stopaudio" style="width:60%;opacity:0" onclick="stopAudio()">Stop Music.</button><button id="placer" style="width:30%;opacity:0">This is a placer.</button>
+        <h4 id="music" style="-webkit-margin-after: .5em;">Music</h4>
+        <button ID="song" style="width:40%;" onclick="newSong(), animation()">Play a song!</button> <button ID="stopaudio" style="width:60%;opacity:0" onclick="stopAudio()">Pause Music.</button><button id="placer" style="width:30%;opacity:0">This is a placer.</button>
         <script>
 
           function animation(){
@@ -609,21 +609,21 @@
           if (pausedsong == 1)
           {
             document.getElementById("songone").play()
-            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            document.getElementById("stopaudio").innerHTML = "Pause Music."
             pausedsong = 0;
             return;
           }
           if (pausedsong == 2)
           {
             document.getElementById("songtwo").play()
-            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            document.getElementById("stopaudio").innerHTML = "Pause Music."
             pausedsong = 0;
             return;
           }
           if (pausedsong == 3)
           {
             document.getElementById("songthree").play()
-            document.getElementById("stopaudio").innerHTML = "Stop Music."
+            document.getElementById("stopaudio").innerHTML = "Pause Music."
             pausedsong = 0;
             return;
           }
@@ -644,24 +644,28 @@
             document.getElementById("songthree").pause()            
             document.getElementById("songthree").currentTime = 0
             currentsong = 3;
-          }          
+          }
+                    
 
           randomsong = Math.floor((Math.random() * 3 ) + 1);
           // Avoids shuffling to the same song.
           if (randomsong == 1 && currentsong !== 1){
             document.getElementById("songone").play();
+            document.getElementById("music").innerHTML = "Now Playing: Minecraft"
             randomsong = 0;
             currentsong = 0;
             return;
           }
           if (randomsong == 2 && currentsong !== 2){
             document.getElementById("songtwo").play();
+            document.getElementById("music").innerHTML = "Now Playing: LloydXmas"
             randomsong = 0;
             currentsong = 0;
             return;
           }
           if (randomsong == 3 && currentsong !== 3){
             document.getElementById("songthree").play();
+            document.getElementById("music").innerHTML = "Now Playing: Bach"
             randomsong = 0;
             currentsong = 0;
             return;
